@@ -210,7 +210,7 @@ const Hero = ({ onNavigate = () => {} }) => {
         <button
           key={idx}
           onClick={() => {
-            onNavigate("services");
+            onNavigate("service");
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
           className="fade-in relative group bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4 hover:shadow-xl hover:border-[#56ab2f30] transition-all duration-300 cursor-pointer text-left active:scale-95"
