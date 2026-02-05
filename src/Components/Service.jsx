@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Home, Key, Utensils, Bath, CheckCircle2, Calculator, ChevronRight } from "lucide-react";
+import FooterSection  from "../Components/footer";
 
 const Service = ({ onNavigate }) => {
   useEffect(() => {
@@ -103,7 +104,11 @@ const Service = ({ onNavigate }) => {
           </div>
         </div>
       </section>
+
+      <FooterSection/>
     </div>
+
+
   );
 };
 

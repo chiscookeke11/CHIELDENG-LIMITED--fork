@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Mail, Menu, X, Phone } from "lucide-react";
 
 const Navbar = ({ onNavigate = () => {}, currentPage = "home" }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const handleNavigate = (page) => {
     setIsOpen(false);
@@ -10,8 +11,22 @@ const Navbar = ({ onNavigate = () => {}, currentPage = "home" }) => {
     if (typeof window !== "undefined") window.scrollTo(0, 0);
   };
 
+  // Scroll animation
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="relative flex items-center justify-between px-4 sm:px-6 py-4 max-w-7xl mx-auto z-30">
+    <nav
+      className=
+      {`fixed top-0 left-0 right-0 bg-white flex items-center justify-between px-4 sm:px-6 py-4 w-full mx-auto z-50 transition-all duration-500 animate-[fadeDown_.6s_ease-out]
+      ${scrolled ? "bg-white/90 backdrop-blur shadow-md" : "bg-transparent"}`}
+    >
       <div className="flex items-center gap-2 sm:gap-3 group cursor-pointer shrink-0">
         <div className="relative flex items-center justify-center">
           <div className="absolute inset-0 bg-[#56ab2f] blur-md opacity-0 group-hover:opacity-20 transition-opacity duration-500 rounded-full" />
@@ -50,30 +65,39 @@ const Navbar = ({ onNavigate = () => {}, currentPage = "home" }) => {
         >
           Home
         </button>
+
         <button
           onClick={() => handleNavigate("about")}
           className={`${currentPage === "about" ? "text-[#56ab2f] border-b-2 border-[#56ab2f]" : "hover:text-[#56ab2f]"} cursor-pointer transition-colors`}
         >
           About Us
         </button>
-        <button 
-            onClick={() => handleNavigate("service")}
-        className={`${currentPage === "service" ? "text-[#56ab2f] border-b-2 border-[#56ab2f]" : "hover:text-[#56ab2f]"} cursor-pointer transition-colors`}>
+
+        <button
+          onClick={() => handleNavigate("service")}
+          className={`${currentPage === "service" ? "text-[#56ab2f] border-b-2 border-[#56ab2f]" : "hover:text-[#56ab2f]"} cursor-pointer transition-colors`}
+        >
           Services
         </button>
-        <button className="hover:text-[#56ab2f] cursor-pointer transition-colors">
+
+        <button 
+        onClick={()=> handleNavigate("contact") }
+        className={`${currentPage === "contact" ? "text-[#56ab2f] border-b-2 border-[#56ab2f]" : "hover:text-[#56ab2f]"} cursor-pointer transition-colors`}>
           Contact
         </button>
 
         <div className="flex items-center gap-3 ml-2">
           <a
+
             href="tel:01234567890"
             className="hidden sm:inline-flex items-center px-4 py-2 rounded-lg text-sm font-semibold text-[#2d5a84] bg-white border border-slate-200 hover:bg-slate-50 transition"
           >
             <Phone size={14} className="mr-2" />
             Call
           </a>
+
           <a
+          onClick={()=> handleNavigate("contact") }
             href="#book"
             className="inline-flex items-center px-4 py-2 rounded-lg text-sm font-semibold text-white bg-linear-to-t from-[#2c700d] to-[#4a9328] hover:from-[#4a9328] hover:to-[#3c7a20] transition"
           >
@@ -87,7 +111,7 @@ const Navbar = ({ onNavigate = () => {}, currentPage = "home" }) => {
         </div>
       </div>
 
-      {/* Mobile Hamburger Button */}
+      {/* Mobile Hamburger */}
       <div className="md:hidden">
         <button
           className="text-slate-700 focus:outline-none transition-transform active:scale-95"
@@ -98,9 +122,11 @@ const Navbar = ({ onNavigate = () => {}, currentPage = "home" }) => {
         </button>
       </div>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Menu */}
       <div
-        className={`md:hidden absolute top-full left-0 right-0 bg-white shadow-2xl border-t border-slate-200 z-50 transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0 pointer-events-none"}`}
+        className={`md:hidden absolute top-full left-0 right-0 bg-white shadow-2xl border-t border-slate-200 z-50 transition-all duration-300 ease-in-out overflow-hidden ${
+          isOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+        }`}
       >
         <div className="flex flex-col items-center gap-6 py-8 px-6 text-center font-medium text-slate-700">
           <button
@@ -109,35 +135,36 @@ const Navbar = ({ onNavigate = () => {}, currentPage = "home" }) => {
           >
             Home
           </button>
+
           <button
             onClick={() => handleNavigate("about")}
             className={`${currentPage === "about" ? "text-[#56ab2f] text-lg" : "text-lg hover:text-[#56ab2f]"} transition-colors cursor-pointer`}
           >
             About Us
           </button>
-          <button 
+
+          <button
             onClick={() => handleNavigate("service")}
-            className={`${currentPage === "service" ? "text-[#56ab2f] text-lg" : "text-lg hover:text-[#56ab2f]"} transition-colors cursor-pointer`}>
+            className={`${currentPage === "service" ? "text-[#56ab2f] text-lg" : "text-lg hover:text-[#56ab2f]"} transition-colors cursor-pointer`}
+          >
             Services
           </button>
+
           <button className="text-lg hover:text-[#56ab2f] transition-colors cursor-pointer">
             Contact
           </button>
 
-          <button
+          <a
             href="tel:01234567890"
-            onClick={() => {
-              setIsOpen(false); /* link handled by browser via a tags */
-            }}
+            onClick={() => setIsOpen(false)}
             className="w-full inline-flex justify-center items-center px-6 py-3 rounded-md bg-white border border-slate-200 text-[#2d5a84] font-semibold hover:bg-slate-50 transition"
           >
             <Phone size={16} className="mr-3" />
             Call
-          </button>
+          </a>
+
           <button
-            onClick={() => {
-              setIsOpen(false); /* keep anchor behavior if needed */
-            }}
+            onClick={() => setIsOpen(false)}
             className="w-full inline-flex justify-center items-center px-6 py-3 rounded-md bg-linear-to-t from-[#2c700d] to-[#4a9328] text-white font-semibold hover:opacity-90 transition"
           >
             Book a Service

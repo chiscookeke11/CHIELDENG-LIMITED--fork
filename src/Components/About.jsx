@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { ShieldCheck, Leaf, Calendar, Award, Sparkles } from "lucide-react";
+import FooterSection  from "../Components/footer";
 
 const AboutUs = () => {
   useEffect(() => {
@@ -23,7 +24,7 @@ const AboutUs = () => {
   return (
     <div className="bg-white font-sans text-slate-800 overflow-hidden">
       {/* 1. TOP HEADER SECTION */}
-      <section className="relative py-20 bg-[#0b0642] text-white">
+      <section className="relative py-20 bg-[#0b0642] text-white mt-11">
         <div className="absolute inset-0 opacity-20">
             {/* Background texture or pattern */}
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
@@ -139,6 +140,8 @@ const AboutUs = () => {
           </div>
         </div>
       </section>
+
+      <FooterSection/>
     </div>
   );
 };

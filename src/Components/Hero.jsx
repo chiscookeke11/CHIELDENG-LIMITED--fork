@@ -1,25 +1,28 @@
 import React, { useState, useEffect } from "react";
-// Added Home, Key, Utensils, and Bath to the list below
 import { 
-  ShieldCheck, 
-  Star, 
-  ThumbsUp, 
-  ChevronRight, 
-  Home, 
-  Key, 
-  Utensils, 
-  Bath 
+  ShieldCheck, Star, ThumbsUp, ChevronRight, Home, Key, 
+  Utensils, Bath, ChevronDown, CheckCircle2 
 } from "lucide-react";
 
+import FooterSection from "../Components/footer";
 import heroimage from "../assets/housewife-young-smiling-woman-with-basin-with-cleansing-appliances.jpg";
 
 const Hero = ({ onNavigate = () => {} }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  // 1. STATE FOR DROPDOWN AND IMAGE LOADING
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState("Select a Service");
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  const services = [
+    "Residential Deep Clean",
+    "End of Tenancy",
+    "Commercial Cleaning",
+    "Oven / Kitchen Special"
+  ];
 
   useEffect(() => {
-    /* Fade-in animation */
+    // Fade-in animation observer
     const faders = document.querySelectorAll(".fade-in");
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -31,16 +34,13 @@ const Hero = ({ onNavigate = () => {} }) => {
       },
       { threshold: 0.25 }
     );
-
     faders.forEach((el) => observer.observe(el));
 
-    /* Carousel animation */
+    // Carousel animation
     const track = document.querySelector(".carousel-track");
     if (!track) return;
-
     let index = 0;
     const slides = document.querySelectorAll(".carousel-slide");
-
     const interval = setInterval(() => {
       index = (index + 1) % slides.length;
       track.style.transform = `translateX(-${index * 100}%)`;
@@ -53,15 +53,18 @@ const Hero = ({ onNavigate = () => {} }) => {
   }, []);
 
   return (
-    <div className="bg-white font-sans text-slate-800 h-fit w-full">
+    <div className="bg-white font-sans text-slate-800 h-screen w-full mt-16">
       {/* HERO SECTION */}
-      <main className="relative overflow-hidden bg-linear-to-r from-slate-50 to-white">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
+      <main className="relative overflow-hidden bg-slate-100">
+        {/* 2. OPTIMIZED BACKGROUND IMAGE WITH FADE-IN */}
+        <div className="absolute inset-0 z-0 bg-slate-200">
           <img
             src={heroimage}
             alt="Professional cleaning service"
-            className="w-full h-full object-cover object-center"
+            onLoad={() => setImageLoaded(true)}
+            className={`w-full h-full object-cover object-center transition-opacity duration-1000 ease-in-out ${
+                imageLoaded ? "opacity-100" : "opacity-0"
+            }`}
           />
           <div className="absolute inset-0 bg-linear-to-b from-white/90 via-white/30 to-white/30 md:bg-linear-to-l md:from-transparent md:via-white/50 md:to-white" />
         </div>
@@ -74,9 +77,7 @@ const Hero = ({ onNavigate = () => {} }) => {
 
             <p className="text-2xl sm:text-3xl text-[#0b0642e5] font-semibold">
               Only{" "}
-              <span className="text-[#56ab2f] text-4xl sm:text-5xl font-bold">
-                £30
-              </span>{" "}
+              <span className="text-[#56ab2f] text-4xl sm:text-5xl font-bold">£30</span>{" "}
               Per Room
             </p>
 
@@ -85,10 +86,10 @@ const Hero = ({ onNavigate = () => {} }) => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start">
-              <button className="bg-linear-to-t from-[#2c700d] to-[#4a9328] text-white px-8 py-3 rounded-lg font-bold text-lg shadow-lg transition active:scale-95">
+              <button className="bg-linear-to-t from-[#2c700d] to-[#4a9328] text-white px-8 py-3 rounded-lg font-bold text-lg shadow-lg transition hover:brightness-140 active:scale-95">
                 Get a Quote
               </button>
-              <button className="bg-linear-to-t from-[#1c4b77] to-[#23486a] text-white px-8 py-3 rounded-lg font-bold text-lg shadow-lg transition active:scale-95">
+              <button className="bg-linear-to-t from-[#1c4b77] to-[#23486a] text-white px-8 py-3 rounded-lg font-bold text-lg shadow-lg transition active:scale-95 hover:brightness-140 ">
                 Book a Cleaning
               </button>
             </div>
@@ -96,34 +97,17 @@ const Hero = ({ onNavigate = () => {} }) => {
             {/* BADGES */}
             <div className="pt-10 flex flex-wrap justify-center md:justify-start gap-8">
               {[
-                {
-                  icon: <ShieldCheck />,
-                  label: "Fully Insured",
-                  desc: "£5m Public Liability",
-                },
-                {
-                  icon: <Star />,
-                  label: "Top Rated",
-                  desc: "4.9/5 Average Rating",
-                },
-                {
-                  icon: <ThumbsUp />,
-                  label: "Expert Staff",
-                  desc: "DBS Checked & Vetted",
-                },
+                { icon: <ShieldCheck />, label: "Fully Insured", desc: "£5m Public Liability" },
+                { icon: <Star />, label: "Top Rated", desc: "4.9/5 Average Rating" },
+                { icon: <ThumbsUp />, label: "Expert Staff", desc: "DBS Checked & Vetted" },
               ].map((badge, index) => (
                 <div key={index} className="flex items-start gap-3">
                   <div className="w-11 h-11 rounded-xl bg-white shadow flex items-center justify-center text-[#56ab2f]">
-                    {React.cloneElement(badge.icon, {
-                      size: 22,
-                      strokeWidth: 2.5,
-                    })}
+                    {React.cloneElement(badge.icon, { size: 22, strokeWidth: 2.5 })}
                   </div>
                   <div>
                     <p className="font-bold text-[#0b0642]">{badge.label}</p>
-                    <p className="text-xs text-slate-500 uppercase italic">
-                      {badge.desc}
-                    </p>
+                    <p className="text-xs text-slate-500 uppercase italic">{badge.desc}</p>
                   </div>
                 </div>
               ))}
@@ -132,7 +116,7 @@ const Hero = ({ onNavigate = () => {} }) => {
         </div>
       </main>
 
-      {/* ABOUT TEASER */}
+          {/* ABOUT TEASER */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
@@ -230,7 +214,7 @@ const Hero = ({ onNavigate = () => {} }) => {
             </span>
           </div>
 
-          {/* Deal Badge (matching your image) */}
+         
           {service.deal && (
             <span className="absolute -top-2 -right-2 bg-[#e91e63] text-white text-[10px] font-black px-2 py-1 rounded shadow-md italic transform rotate-3">
               DEAL
@@ -316,6 +300,201 @@ const Hero = ({ onNavigate = () => {} }) => {
     </div>
   </div>
 </section>
+
+{/* WHAT OUR CLIENTS SAY SECTION */}
+<section className="py-20 bg-slate-50 overflow-hidden">
+  <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <div className="text-center mb-16 fade-in">
+      <h2 className="text-3xl md:text-5xl font-extrabold text-[#0b0642] mb-4">
+        What Our Clients Say
+      </h2>
+      <p className="text-slate-500 text-lg max-w-2xl mx-auto">
+        We don't just clean houses; we give people their homes back. Here is why Bexley residents trust Ozed.
+      </p>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {[
+        {
+          name: "Sarah Jenkins",
+          role: "Bexley Homeowner",
+          hook: "I finally stopped apologizing for the mess.",
+          quote: "Ozed didn't just deep clean the kitchen; they gave me my weekends back with my kids. Walking in and smelling that 'fresh start' is the best part of my Friday.",
+          tags: "Deep Clean"
+        },
+        {
+          name: "Marcus Thorne",
+          role: "Property Manager",
+          hook: "The 'Ozed Glow' is real.",
+          quote: "I’ve used dozens of services for my rentals, but these are the first people who actually move the furniture to clean behind it. Absolute professionals.",
+          tags: "End of Tenancy"
+        },
+        {
+          name: "Elena Rodriguez",
+          role: "Working Professional",
+          hook: "A literal weight off my shoulders.",
+          quote: "Coming home to a spotless house after a 10-hour shift is a form of self-care. Reliable, discreet, and worth every single penny.",
+          tags: "Regular Service"
+        }
+      ].map((testimonial, idx) => (
+        <div 
+          key={idx} 
+          className="fade-in group bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500 flex flex-col justify-between"
+        >
+          <div>
+            <div className="flex items-center gap-1 mb-6 text-yellow-400">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} size={18} fill="currentColor" />
+              ))}
+            </div>
+            
+            <h4 className="text-xl font-bold text-[#0b0642] mb-3 group-hover:text-[#56ab2f] transition-colors">
+              "{testimonial.hook}"
+            </h4>
+            
+            <p className="text-slate-600 leading-relaxed italic mb-8">
+              {testimonial.quote}
+            </p>
+          </div>
+
+          <div className="flex items-center justify-between pt-6 border-t border-slate-50">
+            <div>
+              <p className="font-bold text-[#0b0642]">{testimonial.name}</p>
+              <p className="text-xs text-slate-400 font-medium uppercase tracking-tighter">{testimonial.role}</p>
+            </div>
+            <span className="bg-slate-50 text-[#56ab2f] text-[10px] font-bold px-3 py-1 rounded-full border border-slate-100">
+              {testimonial.tags}
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {/* Elegant Bottom Hook */}
+    <div className="mt-16 text-center fade-in">
+      <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full shadow-sm border border-slate-100 mb-6">
+        <span className="flex -space-x-2">
+          {[1, 2, 3, 4].map((i) => (
+            <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-slate-200 flex items-center justify-center text-[10px] font-bold overflow-hidden">
+               <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt="user" />
+            </div>
+          ))}
+        </span>
+        <p className="text-sm font-semibold text-slate-600 ml-2">
+          Join 500+ happy families in Bexley
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+      {/* CONTACT & ENQUIRY SECTION */}
+      <section className="relative py-24 overflow-hidden min-h-[90vh] flex items-center">
+        {/* Background Image with same fade-in logic */}
+        <div className="absolute inset-0 z-0 bg-slate-900">
+          <img 
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2000" 
+            alt="Luxury clean interior" 
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-[2px] bg-gradient-to-r from-slate-900/90 via-slate-900/60 to-transparent" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            
+            <div className="fade-in space-y-10 text-white">
+              {/* [ ... Left Column Brand Content ... ] */}
+              <div className="space-y-4">
+                <span className="bg-[#56ab2f] text-white text-xs font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full">Get in Touch</span>
+                <h2 className="text-4xl md:text-6xl font-extrabold leading-tight">Ready to experience <br /> <span className="text-[#56ab2f]">the Ozed standard?</span></h2>
+              </div>
+              {/* ... existing email/location/status badges ... */}
+            </div>
+
+            {/* Right Column: THE PREMIUM FORM */}
+            <div className="fade-in bg-white/95 backdrop-blur-sm p-8 md:p-12 rounded-[3rem] shadow-2xl border border-white/20">
+              <h3 className="text-2xl font-bold text-[#0b0642] mb-8">Request a Quote</h3>
+              
+              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-xs font-black text-[#0b0642] uppercase ml-1">Full Name</label>
+                    <input type="text" placeholder="Sarah Jenkins" className="w-full px-5 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:bg-white focus:ring-2 focus:ring-[#56ab2f] transition-all outline-none" />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-xs font-black text-[#0b0642] uppercase ml-1">Phone Number</label>
+                    <input type="tel" placeholder="07123 456 789" className="w-full px-5 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:bg-white focus:ring-2 focus:ring-[#56ab2f] transition-all outline-none" />
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-xs font-black text-[#0b0642] uppercase ml-1">Email Address</label>
+                    <input type="email" placeholder="sarah@example.com" className="w-full px-5 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:bg-white focus:ring-2 focus:ring-[#56ab2f] transition-all outline-none" />
+                  </div>
+
+                  {/* 3. NEW PROFESSIONAL DROPDOWN INTEGRATION */}
+                  <div className="space-y-2">
+                    <label className="text-xs font-black text-[#0b0642] uppercase ml-1">Service Type</label>
+                    <div className="relative">
+                      <button
+                        type="button"
+                        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                        className={`w-full flex items-center justify-between px-5 py-4 rounded-2xl bg-slate-50 border transition-all duration-300 outline-none
+                          ${isDropdownOpen ? "bg-white border-[#56ab2f] ring-2 ring-[#56ab2f]" : "border-slate-100"}`}
+                      >
+                        <span className={`text-sm font-medium ${selectedService === "Select a Service" ? "text-slate-400" : "text-[#0b0642]"}`}>
+                          {selectedService}
+                        </span>
+                        <ChevronDown className={`text-slate-400 transition-transform duration-300 ${isDropdownOpen ? "rotate-180 text-[#56ab2f]" : ""}`} size={18} />
+                      </button>
+
+                      {isDropdownOpen && (
+                        <>
+                          <div className="fixed inset-0 z-20" onClick={() => setIsDropdownOpen(false)} />
+                          <div className="absolute top-full left-0 right-0 mt-2 z-30 bg-white border border-slate-100 rounded-2xl shadow-2xl overflow-hidden animate-in fade-in slide-in-from-top-2">
+                            <div className="py-2">
+                              {services.map((service) => (
+                                <button
+                                  key={service}
+                                  type="button"
+                                  onClick={() => {
+                                    setSelectedService(service);
+                                    setIsDropdownOpen(false);
+                                  }}
+                                  className="w-full text-left px-5 py-3 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-[#56ab2f] flex items-center justify-between"
+                                >
+                                  {service}
+                                  {selectedService === service && <CheckCircle2 size={14} className="text-[#56ab2f]" />}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-xs font-black text-[#0b0642] uppercase ml-1">How can we help?</label>
+                  <textarea rows="3" placeholder="Tell us a bit about your property..." className="w-full px-5 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:bg-white focus:ring-2 focus:ring-[#56ab2f] transition-all outline-none resize-none" />
+                </div>
+
+                <button className="w-full bg-linear-to-t from-[#2c700d] to-[#4a9328] text-white py-5 rounded-2xl font-bold text-lg shadow-xl shadow-green-900/20 hover:scale-[1.02] transition-all active:scale-95 flex items-center justify-center gap-3">
+                  Send Enquiry
+                  <ChevronRight size={22} strokeWidth={3} />
+                </button>
+                
+                <p className="text-center text-[10px] text-slate-400 font-bold uppercase tracking-widest">🔒 Your data is safe with Ozed Services</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <FooterSection/>
     </div>
   );
 };
