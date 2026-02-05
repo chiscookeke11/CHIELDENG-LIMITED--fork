@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { 
   ShieldCheck, Star, ThumbsUp, ChevronRight, Home, Key, 
   Utensils, Bath, ChevronDown, CheckCircle2 
@@ -157,16 +158,14 @@ const Hero = ({ onNavigate = () => {} }) => {
                 using premium, eco-conscious products.
               </p>
 
-       <button
-  onClick={() => {
-    onNavigate("about");
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }}
+   <Link
+  to="/about"
+  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
   className="group inline-flex items-center px-6 py-3 rounded-xl bg-gradient-to-t from-[#1c4b77] to-[#23486a] text-white text-lg font-medium hover:brightness-110 transition-all shadow-lg active:scale-95"
 >
   Discover Our Standards 
   <ChevronRight className="ml-2 transition-transform group-hover:translate-x-1" size={20} />
-</button>
+</Link>
             </div>
 
           </div>
@@ -174,7 +173,7 @@ const Hero = ({ onNavigate = () => {} }) => {
       </section>
 
       {/* SERVICE GRID INTRO */}
-{/* SERVICE GRID HOOK */}
+
 <section className="py-16 bg-slate-50">
   <div className="max-w-7xl mx-auto px-6">
     <div className="text-center mb-12 fade-in">
@@ -191,36 +190,33 @@ const Hero = ({ onNavigate = () => {} }) => {
         { title: "Kitchen Deep Clean", icon: <Utensils size={24} />, deal: false },
         { title: "Bathroom Deep Clean", icon: <Bath size={24} />, deal: true },
       ].map((service, idx) => (
-        <button
-          key={idx}
-          onClick={() => {
-            onNavigate("service");
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
-          className="fade-in relative group bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4 hover:shadow-xl hover:border-[#56ab2f30] transition-all duration-300 cursor-pointer text-left active:scale-95"
-        >
-          {/* Icon Container */}
-          <div className="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center text-[#2d5a84] group-hover:bg-[#56ab2f] group-hover:text-white transition-all duration-300 shadow-inner">
-            {service.icon}
-          </div>
+      <Link
+  key={idx}
+  to="/service"
+  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+  className="fade-in relative group bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4 hover:shadow-xl hover:border-[#56ab2f30] transition-all duration-300 cursor-pointer text-left active:scale-95"
+>
+  {/* Icon Container */}
+  <div className="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center text-[#2d5a84] group-hover:bg-[#56ab2f] group-hover:text-white transition-all duration-300 shadow-inner">
+    {service.icon}
+  </div>
 
-          {/* Text */}
-          <div className="flex flex-col">
-            <span className="font-bold text-[#0b0642] text-lg group-hover:text-[#56ab2f] transition-colors">
-              {service.title}
-            </span>
-            <span className="text-xs text-slate-400 font-semibold uppercase tracking-wider flex items-center gap-1">
-              View Details <ChevronRight size={12} className="group-hover:translate-x-1 transition-transform" />
-            </span>
-          </div>
+  {/* Text */}
+  <div className="flex flex-col">
+    <span className="font-bold text-[#0b0642] text-lg group-hover:text-[#56ab2f] transition-colors">
+      {service.title}
+    </span>
+    <span className="text-xs text-slate-400 font-semibold uppercase tracking-wider flex items-center gap-1">
+      View Details <ChevronRight size={12} className="group-hover:translate-x-1 transition-transform" />
+    </span>
+  </div>
 
-         
-          {service.deal && (
-            <span className="absolute -top-2 -right-2 bg-[#e91e63] text-white text-[10px] font-black px-2 py-1 rounded shadow-md italic transform rotate-3">
-              DEAL
-            </span>
-          )}
-        </button>
+  {service.deal && (
+    <span className="absolute -top-2 -right-2 bg-[#e91e63] text-white text-[10px] font-black px-2 py-1 rounded shadow-md italic transform rotate-3">
+      DEAL
+    </span>
+  )}
+</Link>
       ))}
     </div>
   </div>
