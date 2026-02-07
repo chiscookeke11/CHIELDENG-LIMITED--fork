@@ -31,7 +31,7 @@ const AboutUs = () => {
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-center space-y-4">
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">
-            About <span className="text-[#56ab2f]">Ozed</span> Cleaning
+            About <span className="text-[#56ab2f]">CHIELDENG LIMITED</span> Cleaning
           </h1>
           <p className="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto italic font-light">
             Redefining clean for refined homes in London.
@@ -46,10 +46,10 @@ const AboutUs = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-[#0b0642]">Who We Are</h2>
             <div className="w-20 h-1.5 bg-[#56ab2f] rounded-full"></div>
             <p className="text-lg text-gray-700 leading-relaxed">
-              At <strong className="text-[#0b0642]">Ozed Cleaning Service</strong>, we aren't just a general maintenance company—we are specialized deep-cleaning experts. Serving London and surrounding areas, we’ve built our reputation on the belief that a clean home is the foundation of a happy life.
+              At <strong className="text-[#0b0642]">CHIELDENG LIMITED Cleaning Service</strong>, we aren't just a general maintenance company—we are specialized cleaning experts. Serving London and surrounding areas, we’ve built our reputation on the belief that a clean home is the foundation of a happy life.
             </p>
             <p className="text-lg text-gray-700 leading-relaxed">
-              Our agency focuses <span className="font-bold underline decoration-[#56ab2f]">solely on domestic deep cleaning</span>, ensuring that every corner of your living space receives the professional attention it deserves.
+              Our agency focuses <span className="font-bold underline decoration-[#56ab2f]">solely on domestic cleaning</span>, ensuring that every corner of your living space receives the professional attention it deserves.
             </p>
           </div>
           <div className="fade-in">
@@ -115,7 +115,7 @@ const AboutUs = () => {
               />
           </div>
           <div className="order-1 lg:order-2 fade-in space-y-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#0b0642]">Why London Chooses Ozed</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0b0642]">Why London Chooses CHIELDENG LIMITED</h2>
             
             <div className="space-y-6">
               {[
@@ -135,7 +135,7 @@ const AboutUs = () => {
             </div>
 
             <button className="w-full sm:w-auto bg-linear-to-t from-[#1c4b77] to-[#23486a] text-white px-10 py-4 rounded-xl font-bold text-lg shadow-xl hover:scale-105 transition active:scale-95">
-              Book Your Deep Clean
+              Book us Today
             </button>
           </div>
         </div>

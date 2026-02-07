@@ -21,11 +21,11 @@ const Service = ({ onNavigate }) => {
   }, []);
 
   const serviceCards = [
-    {
-      title: "Residential Deep Clean",
-      desc: "Comprehensive deep cleaning for all rooms including kitchens, bathrooms, bedrooms, and living areas.",
-      icon: <Home className="w-8 h-8" />,
-    },
+    // {
+    //   title: "Residential Deep Clean",
+    //   desc: "Comprehensive deep cleaning for all rooms including kitchens, bathrooms, bedrooms, and living areas.",
+    //   icon: <Home className="w-8 h-8" />,
+    // },
     {
       title: "End of Tenancy",
       desc: "Thorough cleaning to help tenants get their deposit back and prepare properties for new occupants.",
@@ -38,17 +38,17 @@ const Service = ({ onNavigate }) => {
     },
     {
       title: "Oven / Kitchen Special",
-      desc: "Targeted deep cleaning for kitchen appliances and surfaces, removing stubborn grease and grime.",
+      desc: "Targeted cleaning for kitchen appliances and surfaces, removing stubborn grease and grime.",
       icon: <Bath className="w-8 h-8" />,
     },
   ];
 
   const priceList = [
-    { item: "Residential Deep Clean", price: "£25 - £30 (Per Room)" },
+    // { item: "Residential Deep Clean", price: "£25 - £30 (Per Room)" },
     { item: "Oven / Kitchen Special", price: "£50 - £80" },
     { item: "End of Tenancy", price: "From £120" },
     { item: "Commercial Cleaning", price: "Custom Quote" },
-    { item: "Full Property Deep Clean", price: "Competitive Rates" },
+    { item: "Full Property Clean", price: "Competitive Rates" },
   ];
 
   return (
@@ -58,20 +58,23 @@ const Service = ({ onNavigate }) => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 fade-in">
             <h2 className="text-sm font-bold text-[#56ab2f] uppercase tracking-widest mb-3">Professional Solutions</h2>
-            <h3 className="text-3xl md:text-5xl font-extrabold text-[#0b0642]">Our Deep Cleaning Services</h3>
+            <h3 className="text-3xl md:text-5xl font-extrabold text-[#0b0642]">Our Cleaning Services</h3>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {serviceCards.map((service, index) => (
-              <div key={index} className="fade-in group p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-2xl transition-all duration-300">
-                <div className="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center text-[#56ab2f] mb-6 group-hover:scale-110 transition-transform">
-                  {service.icon}
-                </div>
-                <h4 className="text-xl font-bold text-[#0b0642] mb-3">{service.title}</h4>
-                <p className="text-gray-600 leading-relaxed">{service.desc}</p>
-              </div>
-            ))}
-          </div>
+          <div className="flex flex-col md:flex-row flex-wrap justify-center gap-8 px-4">
+  {serviceCards.map((service, index) => (
+    <div 
+      key={index} 
+      className="fade-in group p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:bg-white hover:shadow-2xl transition-all duration-300 w-full md:w-[calc(50%-2rem)] lg:w-[calc(33.33%-2rem)] max-w-[400px]"
+    >
+      <div className="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center text-[#56ab2f] mb-6 group-hover:scale-110 transition-transform">
+        {service.icon}
+      </div>
+      <h4 className="text-xl font-bold text-[#0b0642] mb-3">{service.title}</h4>
+      <p className="text-gray-600 leading-relaxed">{service.desc}</p>
+    </div>
+  ))}
+</div>
         </div>
       </section>
 

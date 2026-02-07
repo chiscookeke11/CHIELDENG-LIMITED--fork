@@ -16,7 +16,7 @@ const Hero = () => {
 
   // UPDATED SERVICE LIST
   const services = [
-    "Residential Deep Clean",
+    "Residential Clean",
     "End of Tenancy",
     "Commercial Cleaning",
     "Oven / Kitchen Special"
@@ -73,7 +73,7 @@ const Hero = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 min-h-[70vh] md:min-h-[80vh] lg:min-h-screen flex items-center">
           <div className="w-full md:w-1/2 space-y-6 md:space-y-8 text-center md:text-left">
             <h1 className="text-4xl sm:text-5xl font-extrabold text-[#0b0642] leading-tight">
-              Expert Cleaning Services in London, UK
+              Expert Cleaning Services in London
             </h1>
 
             <p className="text-2xl sm:text-3xl text-[#0b0642e5] font-semibold">
@@ -142,10 +142,10 @@ const Hero = () => {
 
             <div className="order-1 lg:order-2 space-y-8 fade-in">
               <h3 className="text-3xl md:text-4xl font-bold text-[#0b0642]">
-                Why Choose Ozed?
+                Why Choose CHIELDENG LIMITED?
               </h3>
               <p className="text-lg text-gray-700 max-w-xl">
-                Expert deep-cleaning services crafted for refined homes in
+                Expert -cleaning services crafted for refined homes in
                 London. Our discreet professionals deliver impeccable results
                 using premium, eco-conscious products.
               </p>
@@ -172,47 +172,46 @@ const Hero = () => {
             <p className="text-slate-500 font-medium">Click a service to explore our expertise and pricing</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { title: "Residential Deep Clean", icon: <Home size={24} />, deal: true },
-              { title: "End of Tenancy", icon: <Key size={24} />, deal: false },
-              { title: "Commercial Cleaning", icon: <Utensils size={24} />, deal: false },
-              { title: "Oven / Kitchen Special", icon: <Bath size={24} />, deal: true },
-            ].map((service, idx) => (
-              <Link
-                key={idx}
-                to="/service"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="fade-in relative group bg-white p-6 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4 hover:shadow-xl hover:border-[#56ab2f30] transition-all duration-300 cursor-pointer text-left active:scale-95"
-              >
-                <div className="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center text-[#2d5a84] group-hover:bg-[#56ab2f] group-hover:text-white transition-all duration-300 shadow-inner">
-                  {service.icon}
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-bold text-[#0b0642] text-lg group-hover:text-[#56ab2f] transition-colors">
-                    {service.title}
-                  </span>
-                  <span className="text-xs text-slate-400 font-semibold uppercase tracking-wider flex items-center gap-1">
-                    View Details <ChevronRight size={12} className="group-hover:translate-x-1 transition-transform" />
-                  </span>
-                </div>
-                {service.deal && (
-                  <span className="absolute -top-2 -right-2 bg-[#e91e63] text-white text-[10px] font-black px-2 py-1 rounded shadow-md italic transform rotate-3">
-                    DEAL
-                  </span>
-                )}
-              </Link>
-            ))}
-          </div>
+          <div className="flex flex-wrap justify-center gap-6">
+  {[
+    { title: "End of Tenancy", icon: <Key size={24} />, deal: false },
+    { title: "Commercial Cleaning", icon: <Utensils size={24} />, deal: false },
+    { title: "Oven / Kitchen Special", icon: <Bath size={24} />, deal: true },
+  ].map((service, idx) => (
+    <Link
+      key={idx}
+      to="/service"
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      className="fade-in relative group bg-white p-10 rounded-2xl shadow-sm border border-slate-100 flex items-center gap-4 hover:shadow-xl hover:border-[#56ab2f30] transition-all duration-300 cursor-pointer text-left active:scale-95"
+    >
+      <div className="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center text-[#2d5a84] group-hover:bg-[#56ab2f] group-hover:text-white transition-all duration-300 shadow-inner">
+        {service.icon}
+      </div>
+      <div className="flex flex-col">
+        <span className="font-bold text-[#0b0642] text-lg group-hover:text-[#56ab2f] transition-colors">
+          {service.title}
+        </span>
+        <span className="text-xs text-slate-400 font-semibold uppercase tracking-wider flex items-center gap-1">
+          View Details <ChevronRight size={12} className="group-hover:translate-x-1 transition-transform" />
+        </span>
+      </div>
+      {service.deal && (
+        <span className="absolute -top-2 -right-2 bg-[#e91e63] text-white text-[10px] font-black px-2 py-1 rounded shadow-md italic transform rotate-3">
+          DEAL
+        </span>
+      )}
+    </Link>
+  ))}
+</div>
         </div>
       </section>
 
-      {/* HOW OZED WORKS */}
+      {/* HOW CHIELDENG LIMITED WORKS */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16 fade-in">
             <h2 className="text-3xl md:text-5xl font-extrabold text-[#0b0642] mb-4">
-              How Ozed Services Works
+              How CHIELDENG LIMITED Services Works
             </h2>
             <p className="text-slate-500 text-lg">Professional cleaning in three simple steps</p>
           </div>
@@ -272,8 +271,8 @@ const Hero = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { name: "Sarah Jenkins", role: "London Homeowner", hook: "I finally stopped apologizing for the mess.", quote: "Ozed didn't just deep clean the kitchen; they gave me my weekends back with my kids.", tags: "Deep Clean" },
-              { name: "Marcus Thorne", role: "Property Manager", hook: "The 'Ozed Glow' is real.", quote: "I’ve used dozens of services for my rentals, but these are the first people who actually move the furniture.", tags: "End of Tenancy" },
+              { name: "Sarah Jenkins", role: "London Homeowner", hook: "I finally stopped apologizing for the mess.", quote: "CHIELDENG LIMITED didn't just clean the kitchen; they gave me my weekends back with my kids.", tags: " Clean" },
+              { name: "Marcus Thorne", role: "Property Manager", hook: "The 'CHIELDENG LIMITED Glow' is real.", quote: "I’ve used dozens of services for my rentals, but these are the first people who actually move the furniture.", tags: "End of Tenancy" },
               { name: "Elena Rodriguez", role: "Working Professional", hook: "A literal weight off my shoulders.", quote: "Coming home to a spotless house after a 10-hour shift is a form of self-care.", tags: "Regular Service" }
             ].map((testimonial, idx) => (
               <div key={idx} className="fade-in group bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-500 flex flex-col justify-between">
@@ -309,7 +308,7 @@ const Hero = () => {
             <div className="fade-in space-y-10 text-white">
               <div className="space-y-4">
                 <span className="bg-[#56ab2f] text-white text-xs font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full">Get in Touch</span>
-                <h2 className="text-4xl md:text-6xl font-extrabold leading-tight">Ready to experience <br /> <span className="text-[#56ab2f]">the Ozed standard?</span></h2>
+                <h2 className="text-4xl md:text-6xl font-extrabold leading-tight">Ready to experience <br /> <span className="text-[#56ab2f]">the CHIELDENG LIMITED standard?</span></h2>
               </div>
             </div>
 

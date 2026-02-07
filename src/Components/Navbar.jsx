@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 flex items-center justify-between px-4 sm:px-6 py-4 w-full mx-auto z-50 transition-all duration-500 animate-[fadeDown_.6s_ease-out]
-      ${scrolled ? "bg-white/95 backdrop-blur shadow-md" : "bg-white md:bg-transparent"}`}
+      ${scrolled ? "bg-white/95 backdrop-blur shadow-md" : "bg-white "}`}
     >
       {/* Logo Section */}
       <div className="flex items-center gap-2 sm:gap-3 group cursor-pointer shrink-0">
@@ -38,7 +38,7 @@ const Navbar = () => {
               to="/"
               className="text-[#2d5a84] font-black text-xl sm:text-2xl tracking-[calc(-0.05em)] leading-none group-hover:text-[#56ab2f] transition-colors duration-300"
             >
-              OZED
+              CHIELDENG LIMITED
             </NavLink>
             <span className="w-1.5 h-1.5 bg-[#56ab2f] rounded-full ml-0.5 mt-1.5 sm:mt-2 opacity-0 group-hover:opacity-100 transition-all duration-500 scale-0 group-hover:scale-100" />
           </div>
@@ -94,10 +94,7 @@ const Navbar = () => {
         </div>
 
         {/* Email Section - Hidden on smaller desktops */}
-        <div className="hidden xl:flex items-center gap-2 text-slate-400 text-sm ml-4">
-          <Mail size={14} />
-          <span className=" max-w-[150px]">info@ozedcleaning.co.uk</span>
-        </div>
+       
       </div>
 
       {/* Mobile/Tablet Hamburger Toggle */}
@@ -172,10 +169,7 @@ const Navbar = () => {
             </NavLink>
           </div>
 
-          <div className="flex items-center gap-3 text-slate-400 mt-6 pt-6 border-t border-slate-100 w-full justify-center">
-            <Mail size={16} />
-            <span className="text-sm">info@ozedcleaning.co.uk</span>
-          </div>
+         
         </div>
       </div>
     </nav>

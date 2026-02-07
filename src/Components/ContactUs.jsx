@@ -19,7 +19,6 @@ const ContactPage = () => {
   });
 
   const services = [
-    "Residential Deep Clean",
     "End of Tenancy Specialist",
     "Commercial / Office Maintenance",
     "Luxury Oven & Kitchen Steam"
@@ -69,7 +68,7 @@ const ContactPage = () => {
                   <span className="text-[#56ab2f] italic">living space.</span>
                 </h1>
                 <p className="text-lg text-slate-300 max-w-md leading-relaxed">
-                  Bespoke cleaning solutions for London's finest homes. Experience the Ozed difference today.
+                  Bespoke cleaning solutions for London's finest homes. Experience the CHIELDENG LIMITED difference today.
                 </p>
               </div>
 
@@ -80,7 +79,7 @@ const ContactPage = () => {
                 </div>
                 <div>
                   <p className="text-[10px] font-bold text-[#56ab2f] uppercase tracking-widest mb-1">Email Enquiries</p>
-                  <a href="mailto:hello@ozedservices.co.uk" className="text-2xl font-bold hover:text-[#56ab2f] transition-all">hello@ozedservices.co.uk</a>
+                  <a href="mailto:hello@CHIELDENG LIMITEDservices.co.uk" className="text-2xl font-bold hover:text-[#56ab2f] transition-all">hello@CHIELDENG LIMITEDservices.co.uk</a>
                 </div>
               </div>
             </div>
@@ -210,7 +209,7 @@ const ContactPage = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
             <div className="space-y-4">
-              <h2 className="text-3xl font-black text-slate-900">The Ozed Journey</h2>
+              <h2 className="text-3xl font-black text-slate-900">The CHIELDENG LIMITED Journey</h2>
               <p className="text-slate-500 max-w-sm">From initial enquiry to a pristine finish, we handle every detail with precision.</p>
             </div>
             <div className="flex items-center gap-4 bg-slate-50 px-6 py-4 rounded-2xl border border-slate-100">
@@ -228,7 +227,7 @@ const ContactPage = () => {
             {[
               { icon: <MessageSquare className="text-white" />, title: "Discovery", desc: "A specialist will reach out to understand your specific property needs.", color: "bg-slate-900" },
               { icon: <Calendar className="text-white" />, title: "Precision Scheduling", desc: "Choose a time slot that suits your lifestyle. We operate on your clock.", color: "bg-[#56ab2f]" },
-              { icon: <ShieldCheck className="text-white" />, title: "Premium Delivery", desc: "Our vetted, insured professionals execute the Ozed standard.", color: "bg-slate-900" }
+              { icon: <ShieldCheck className="text-white" />, title: "Premium Delivery", desc: "Our vetted, insured professionals execute the CHIELDENG LIMITED standard.", color: "bg-slate-900" }
             ].map((step, i) => (
               <div key={i} className="relative space-y-6 group">
                 <div className={`${step.color} w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg group-hover:-rotate-12 transition-transform duration-500`}>
