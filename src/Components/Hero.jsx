@@ -75,7 +75,7 @@ const Hero = () => {
  <main className="relative overflow-hidden bg-slate-100 h-screen w-full">
 
   {/* Background Image - Set to object-right */}
-  <div className="absolute inset-0 z-0 h-screen">
+  <div className="absolute inset-0 z-0">
     <img
       src={heroimage}
       alt="Professional cleaning service"
