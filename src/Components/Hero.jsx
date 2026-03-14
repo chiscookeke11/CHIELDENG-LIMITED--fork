@@ -345,7 +345,7 @@ const Hero = () => {
       </section>
 
       {/* CONTACT FORM */}
-      <section className="relative py-24 overflow-hidden min-h-[90vh] flex items-center">
+      {/* <section className="relative py-24 overflow-hidden min-h-[90vh] flex items-center">
         <div className="absolute inset-0 z-0 bg-slate-900">
           <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2000" alt="Interior" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-[2px] bg-gradient-to-r from-slate-900/90 via-slate-900/60 to-transparent" />
@@ -411,7 +411,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <FooterSection />
     </div>

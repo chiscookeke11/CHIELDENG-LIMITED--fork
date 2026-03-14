@@ -4,9 +4,9 @@ import Navbar from "./Components/Navbar.jsx";
 import Hero from "./Components/Hero.jsx";
 import AboutUs from "./Components/About.jsx";
 import Service from "./Components/Service.jsx";
-import ContactPage from "./Components/ContactUs.jsx";
+// import ContactPage from "./Components/ContactUs.jsx";
 import BookingPage from "./Components/BookingPage.jsx";
-import FloatingCallButton from "./Components/FloatingCallButton.jsx";
+import FloatingCallButton from "./Components/FloatingWhatsAppButton.jsx";
 
 function App() {
   return (
