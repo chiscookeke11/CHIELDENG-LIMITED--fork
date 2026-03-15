@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { Mail, Menu, X, Phone } from "lucide-react";
-import Logo from "../assets/logo1.jpeg";
+import Logo from "../assets/Chieldeng Logos-01.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +28,7 @@ const Navbar = () => {
           <img
             src={Logo}
             alt="Chieldeng Logo"
-            className="w-13 h-13 object-cover group-hover:border-[#4a9328] transition-colors duration-300"
+            className="w-12 h-12 object-cover group-hover:border-[#4a9328] transition-colors duration-300"
           />
         </div>
 
@@ -38,7 +38,7 @@ const Navbar = () => {
               to="/"
               className="text-[#2d5a84] font-black text-xl sm:text-2xl tracking-[calc(-0.05em)] leading-none group-hover:text-[#56ab2f] transition-colors duration-300 max-sm:text-[15px]"
             >
-              CHIELDENG LIMITED
+              CHIELDENG
             </NavLink>
             <span className="w-1.5 h-1.5 bg-[#56ab2f] rounded-full ml-0.5 mt-1.5 sm:mt-2 opacity-0 group-hover:opacity-100 transition-all duration-500 scale-0 group-hover:scale-100" />
           </div>

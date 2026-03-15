@@ -109,7 +109,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="font-sans text-slate-800 w-full mt-16">
+    <div className="font-sans text-slate-800 w-full mt-18">
       {/* Banner */}
       <div className="bg-[#00245B] py-4 px-6 flex justify-center items-center max-md:text-center">
         <p className="text-white text-sm md:text-base font-normal tracking-wide">
@@ -212,7 +212,7 @@ const Hero = () => {
               </div>
             </div>
             <div className="order-1 lg:order-2 space-y-8 fade-in">
-              <h3 className="text-3xl md:text-4xl font-bold text-[#0b0642]">Why Choose CHIELDENG LIMITED?</h3>
+              <h3 className="text-3xl md:text-4xl font-bold text-[#0b0642]">Why Choose CHIELDENG Cleaning Service?</h3>
               <p className="text-lg text-gray-700 max-w-xl">Expert cleaning services crafted for refined homes in London. Our discreet professionals deliver impeccable results using premium, eco-conscious products.</p>
               <Link to="/about" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="group inline-flex items-center px-6 py-3 rounded-xl bg-gradient-to-t from-[#1c4b77] to-[#23486a] text-white text-lg font-medium hover:brightness-110 transition-all shadow-lg active:scale-95">
                 Discover Our Standards <ChevronRight className="ml-2 transition-transform group-hover:translate-x-1" size={20} />
@@ -290,7 +290,7 @@ const Hero = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-16 fade-in">
-            <h2 className="text-3xl md:text-5xl font-extrabold text-[#0b0642] mb-4">How CHIELDENG LIMITED Works</h2>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-[#0b0642] mb-4">How CHIELDENG Cleaning Service Works</h2>
             <p className="text-slate-500 text-lg">Professional cleaning in three simple steps</p>
           </div>
           <div className="grid md:grid-cols-3 gap-12 text-center">
@@ -319,7 +319,7 @@ const Hero = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { name: "Sarah Jenkins", role: "London Homeowner", hook: "I finally stopped apologizing for the mess.", quote: "CHIELDENG LIMITED didn't just clean the kitchen; they gave me my weekends back.", tags: "Deep Clean" },
+              { name: "Sarah Jenkins", role: "London Homeowner", hook: "I finally stopped apologizing for the mess.", quote: "CHIELDENG Cleaning Service didn't just clean the kitchen; they gave me my weekends back.", tags: "Deep Clean" },
               { name: "Marcus Thorne", role: "Property Manager", hook: "The 'CHIELDENG Glow' is real.", quote: "I’ve used dozens of services, but these are the first people who actually move the furniture.", tags: "Standard Cleaning" },
               { name: "Elena Rodriguez", role: "Working Professional", hook: "A weight off my shoulders.", quote: "Coming home to a spotless house after a 10-hour shift is a form of self-care.", tags: "Regular Service" }
             ].map((testimonial, idx) => (
@@ -344,75 +344,7 @@ const Hero = () => {
         </div>
       </section>
 
-      {/* CONTACT FORM */}
-      {/* <section className="relative py-24 overflow-hidden min-h-[90vh] flex items-center">
-        <div className="absolute inset-0 z-0 bg-slate-900">
-          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=2000" alt="Interior" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-[2px] bg-gradient-to-r from-slate-900/90 via-slate-900/60 to-transparent" />
-        </div>
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="fade-in space-y-10 text-white">
-              <div className="space-y-4">
-                <span className="bg-[#56ab2f] text-white text-xs font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-full">Get in Touch</span>
-                <h2 className="text-4xl md:text-6xl font-extrabold leading-tight">Ready to experience <br /> <span className="text-[#56ab2f]">the CHIELDENG LIMITED standard?</span></h2>
-              </div>
-            </div>
-            <div className="fade-in bg-white/95 backdrop-blur-sm p-8 md:p-12 rounded-[3rem] shadow-2xl border border-white/20">
-              <h3 className="text-2xl font-bold text-[#0b0642] mb-8">Request a Quote</h3>
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-xs font-black text-[#0b0642] uppercase ml-1">Full Name</label>
-                    <input type="text" placeholder="Sarah Jenkins" className="w-full px-5 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:bg-white focus:ring-2 focus:ring-[#56ab2f] outline-none" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-xs font-black text-[#0b0642] uppercase ml-1">Phone Number</label>
-                    <input type="tel" placeholder="07123 456 789" className="w-full px-5 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:bg-white focus:ring-2 focus:ring-[#56ab2f] outline-none" />
-                  </div>
-                </div>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-xs font-black text-[#0b0642] uppercase ml-1">Email Address</label>
-                    <input type="email" placeholder="sarah@example.com" className="w-full px-5 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:bg-white focus:ring-2 focus:ring-[#56ab2f] outline-none" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-xs font-black text-[#0b0642] uppercase ml-1">Service Type</label>
-                    <div className="relative">
-                      <button type="button" onClick={() => setIsDropdownOpen(!isDropdownOpen)} className={`w-full flex items-center justify-between px-5 py-4 rounded-2xl bg-slate-50 border transition-all duration-300 outline-none ${isDropdownOpen ? "bg-white border-[#56ab2f] ring-2 ring-[#56ab2f]" : "border-slate-100"}`}>
-                        <span className={`text-sm font-medium ${selectedService === "Select a Service" ? "text-slate-400" : "text-[#0b0642]"}`}>{selectedService}</span>
-                        <ChevronDown className={`text-slate-400 transition-transform duration-300 ${isDropdownOpen ? "rotate-180 text-[#56ab2f]" : ""}`} size={18} />
-                      </button>
-                      {isDropdownOpen && (
-                        <>
-                          <div className="fixed inset-0 z-20" onClick={() => setIsDropdownOpen(false)} />
-                          <div className="absolute bottom-full mb-2 left-0 right-0 z-30 bg-white border border-slate-100 rounded-2xl shadow-2xl overflow-hidden">
-                            <div className="py-2">
-                              {services.map((s) => (
-                                <button key={s} type="button" onClick={() => { setSelectedService(s); setIsDropdownOpen(false); }} className="w-full text-left px-5 py-3 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-[#56ab2f] flex items-center justify-between">
-                                  {s} {selectedService === s && <CheckCircle2 size={14} className="text-[#56ab2f]" />}
-                                </button>
-                              ))}
-                            </div>
-                          </div>
-                        </>
-                      )}
-                    </div>
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label className="text-xs font-black text-[#0b0642] uppercase ml-1">How can we help?</label>
-                  <textarea rows="3" placeholder="Tell us a bit about your property..." className="w-full px-5 py-4 rounded-2xl bg-slate-50 border border-slate-100 focus:bg-white focus:ring-2 focus:ring-[#56ab2f] outline-none resize-none" />
-                </div>
-                <button className="w-full bg-linear-to-t from-[#2c700d] to-[#4a9328] text-white py-5 rounded-2xl font-bold text-lg shadow-xl hover:scale-[1.02] transition-all active:scale-95 flex items-center justify-center gap-3">
-                  Send Enquiry <ChevronRight size={22} strokeWidth={3} />
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section> */}
-
+    
       <FooterSection />
     </div>
   );

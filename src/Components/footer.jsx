@@ -49,7 +49,7 @@ const FooterSection = () => {
               onClick={() => handleNavigate("home")}
               className="text-[#2d5a84] font-black text-[19px]  tracking-[calc(-0.05em)] leading-none group-hover:text-[#56ab2f] transition-colors duration-300"
             >
-              CHIELDENG LIMITED
+              CHIELDENG CLEANING SERVICE
             </button>
             <span className="w-1.5 h-1.5 bg-[#56ab2f] rounded-full ml-0.5 mt-1.5 sm:mt-2 opacity-0 group-hover:opacity-100 transition-all duration-500 scale-0 group-hover:scale-100" />
           </div>
@@ -122,7 +122,7 @@ const FooterSection = () => {
               <div className="space-y-5">
                 <a href="mailto:hello@CHIELDENG LIMITEDservices.co.uk" className="flex items-start gap-3 group text-sm">
                   <Mail className="text-slate-500 group-hover:text-[#56ab2f] transition-colors" size={18} />
-                  <span className="text-slate-300 group-hover:text-white transition-colors truncate">hello@CHIELDENG LIMITEDservices.co.uk</span>
+                  <span className="text-slate-300 group-hover:text-white transition-colors truncate">hello@CHIELDENG Cleaning services.co.uk</span>
                 </a>
                 <div className="flex items-start gap-3 text-sm">
                   <MapPin className="text-slate-500" size={18} />
@@ -143,10 +143,10 @@ const FooterSection = () => {
           <div className="pt-10 flex flex-col md:flex-row justify-between items-center gap-8">
             <div className="flex flex-col items-center md:items-start gap-2">
               <p className="text-slate-500 text-[11px] font-medium uppercase tracking-wider">
-                © {new Date().getFullYear()} CHIELDENG LIMITED Services. All rights reserved.
+                © {new Date().getFullYear()} CHIELDENG CLEANING SERVICE. All rights reserved.
               </p>
               <p className="text-slate-400 text-[10px] font-medium uppercase tracking-wider">
-                CHIELDENG LIMITED Cleaning Services is a trading name of CHIELDENG LIMITED. Registered in England & Wales. Company No. 13824032
+                CHIELDENG CLEANING SERVICE is a trading name of CHIELDENG Cleaning Service. Registered in England & Wales. Company No. 13824032
               </p>
               <div className="flex gap-6 text-[10px] font-bold text-slate-600 uppercase tracking-widest">
                 <span className="hover:text-[#56ab2f] cursor-pointer transition-colors">Privacy Policy</span>
